@@ -93,5 +93,3 @@ Word.firstSet =  [
   }
 ];
 
-
-Word.oneWordSet = [{ hint: "school", solution: "학교" }];

@@ -14,10 +14,4 @@ describe("Word", function() {
       expect(Word.firstSet.length).toBeGreaterThan(1);
     });
   });
-
-  describe(".oneWordSet", function() {
-    it("should return a list of one word", function() {
-      expect(Word.oneWordSet.length).toBe(1);
-    });
-  });
 });
