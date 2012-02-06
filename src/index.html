@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+  "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Learn Korean!</title>
+
+  <link rel="stylesheet" type="text/css" href="reset.css">
+  <link rel="stylesheet" type="text/css" href="korean.css">
+
+  <!-- include library files here... -->
+  <script type="text/javascript" src="../lib/jquery.min.js"></script>
+
+  <!-- include source files here... -->
+  <script type="text/javascript" src="Word.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="Quiz.js" charset="UTF-8"></script>
+
+
+</head>
+
+<body>
+  <div id="parapper">
+    <div id="quiz">
+      <div id="solution" style="display: none;"></div>
+      <div id="hint"></div>
+      <input type="text"><div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    (function() {
+      var quiz = new Quiz();
+      quiz.initialize($("input"), $("#solution"), $("#hint"));
+      quiz.start(Word.firstSet);
+    })();
+  </script>
+</body>
+</html>
+
