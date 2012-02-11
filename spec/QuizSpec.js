@@ -96,4 +96,62 @@ describe("Quiz", function() {
       });
     });
   });
+
+  describe("keyup event handled", function() {
+    var retVal;
+
+    beforeEach(function() {
+      words = [{hint:"one",solution:"1"},{hint:"two",solution:"2"}];
+      initializeQuiz(quiz);
+      quiz.start(words);
+    });
+
+    describe("when the last character of the input is a question mark", function() {
+      beforeEach(function() {
+        quiz.inputEl.val("sdf?");
+        retVal = quiz.removeQuestionMark();
+      });
+
+      it("should remove the last character", function() {
+        expect(quiz.inputEl.val()).toBe("sdf")
+      });
+
+      it("should return true", function() {
+        expect(retVal).toBe(true);
+      });
+    });
+
+    describe("when the last character of the input is NOT a question mark", function() {
+      beforeEach(function() {
+        quiz.inputEl.val("sdf");
+        retVal = quiz.removeQuestionMark();
+      });
+
+      it("should NOT remove the last character", function() {
+        expect(quiz.inputEl.val()).toBe("sdf")
+      });
+
+      it("should return false", function() {
+        expect(retVal).toBe(false);
+      });
+    });
+  });
+
+  describe("question mark key event handled", function() {
+    beforeEach(function() {
+      words = [{hint:"one",solution:"1"},{hint:"two",solution:"2"}];
+      initializeQuiz(quiz);
+      quiz.start(words);
+      quiz.inputEl.val("something incorrect");
+      quiz.showSolution();
+    });
+
+    it("should show the solution in the status", function() {
+      expect(quiz.statusEl.html()).toBe("1");
+    });
+
+    it("should clear the input", function() {
+      expect(quiz.inputEl.val()).toBe("");
+    });
+  });
 });
