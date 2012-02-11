@@ -19,6 +19,7 @@
 <body>
   <div id="parapper">
     <div id="quiz">
+      <div id="stats"><span id="completed_count"></span>/<span id="total"></span></div>
       <div id="solution" style="display: none;"></div>
       <div id="hint"></div>
       <input type="text"><div>
@@ -29,7 +30,7 @@
   <script type="text/javascript">
     (function() {
       var quiz = new Quiz();
-      quiz.initialize($("input"), $("#solution"), $("#hint"), $("#status"));
+      quiz.initialize($("input"), $("#solution"), $("#hint"), $("#status"), $("#completed_count"), $("#total"));
       quiz.start(Word.shuffle(Word.secondSet));
     })();
   </script>

@@ -42,8 +42,8 @@ input {
   width: 100%;
 }
 
-#title {
-  float: left;
+#stats {
+  float: right;
 }
 
 #status {

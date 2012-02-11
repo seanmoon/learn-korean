@@ -10,7 +10,15 @@ describe("Quiz", function() {
   });
 
   function initializeQuiz(quiz) {
-    quiz.initialize($("<input></input>"), $("<div></div>"), $("<div></div>"), $("<div></div>"), $("<div></div>"));
+    quiz.initialize(
+      $("<input></input>"),
+      $("<div></div>"),
+      $("<div></div>"),
+      $("<div></div>"),
+      $("<div></div>"),
+      $("<div></div>"),
+      $("<div></div>")
+    );
   }
 
   describe("initialization", function() {
@@ -23,6 +31,8 @@ describe("Quiz", function() {
       expect(quiz.solutionEl).toBeDefined();
       expect(quiz.hintEl).toBeDefined();
       expect(quiz.statusEl).toBeDefined();
+      expect(quiz.completedCountEl).toBeDefined();
+      expect(quiz.totalEl).toBeDefined();
     });
 
     it("should bind a keyDown handler to inputEl", function() {
@@ -41,6 +51,14 @@ describe("Quiz", function() {
     it("should set the hint and solution", function() {
       expect(quiz.hintEl.html()).toBe("one");
       expect(quiz.solutionEl.html()).toBe("1");
+    });
+
+    it("should set the completed count to 0", function() {
+      expect(quiz.completedCountEl.html()).toBe("0");
+    });
+
+    it("should set the total number of words", function() {
+      expect(quiz.totalEl.html()).toBe("2");
     });
 
     it("should save the rest of the words", function() {
@@ -74,6 +92,10 @@ describe("Quiz", function() {
 
       it("should change the status to correct", function() {
         expect(quiz.statusEl.html()).toBe("correct!");
+      });
+
+      it("should increment the completed count element", function() {
+        expect(quiz.completedCountEl.html()).toBe("1");
       });
 
       it("should blur and refocus the input", function() {

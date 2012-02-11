@@ -1,12 +1,14 @@
 function Quiz() {}
 
-Quiz.prototype.initialize = function(inputEl, solutionEl, hintEl, statusEl) {
+Quiz.prototype.initialize = function(inputEl, solutionEl, hintEl, statusEl, completedCountEl, totalEl) {
   var self = this;
 
   this.inputEl = inputEl;
   this.solutionEl = solutionEl;
   this.hintEl = hintEl;
   this.statusEl = statusEl;
+  this.completedCountEl = completedCountEl;
+  this.totalEl = totalEl;
 
   this.inputEl.keydown(function(e) {
     if (e.keyCode == 13) { self.checkMatch(); } // enter
@@ -23,6 +25,8 @@ Quiz.prototype.initialize = function(inputEl, solutionEl, hintEl, statusEl) {
 
 Quiz.prototype.start = function(words) {
   this.words = words;
+  this.completedCountEl.html("0");
+  this.totalEl.html(words.length);
   this.nextWord();
 }
 
@@ -30,6 +34,8 @@ Quiz.prototype.checkMatch = function() {
   if (this.solutionEl.html() == this.inputEl.val()) {
     this.nextWord();
     this.statusEl.html("correct!");
+    var completedCount = parseInt(this.completedCountEl.html());
+    this.completedCountEl.html(completedCount + 1);
   } else {
     this.statusEl.html("incorrect!");
   }
@@ -39,7 +45,7 @@ Quiz.prototype.checkMatch = function() {
 Quiz.prototype.showSolution = function() {
   this.statusEl.html(this.solutionEl.html());
   this.inputEl.val("");
-  this.statusEl.show().fadeOut(2000);
+  this.statusEl.show().fadeOut(2200);
 }
 
 Quiz.prototype.removeQuestionMark = function() {
