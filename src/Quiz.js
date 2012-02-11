@@ -39,7 +39,7 @@ Quiz.prototype.checkMatch = function() {
 Quiz.prototype.showSolution = function() {
   this.statusEl.html(this.solutionEl.html());
   this.inputEl.val("");
-  this.statusEl.show().fadeOut(1000);
+  this.statusEl.show().fadeOut(2000);
 }
 
 Quiz.prototype.removeQuestionMark = function() {
