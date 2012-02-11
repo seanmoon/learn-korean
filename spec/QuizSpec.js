@@ -10,7 +10,7 @@ describe("Quiz", function() {
   });
 
   function initializeQuiz(quiz) {
-    quiz.initialize($("<input></input>"), $("<div></div>"), $("<div></div>"));
+    quiz.initialize($("<input></input>"), $("<div></div>"), $("<div></div>"), $("<div></div>"), $("<div></div>"));
   }
 
   describe("initialization", function() {
@@ -22,6 +22,7 @@ describe("Quiz", function() {
       expect(quiz.inputEl).toBeDefined();
       expect(quiz.solutionEl).toBeDefined();
       expect(quiz.hintEl).toBeDefined();
+      expect(quiz.statusEl).toBeDefined();
     });
 
     it("should bind a keyDown handler to inputEl", function() {
@@ -71,6 +72,10 @@ describe("Quiz", function() {
         expect(quiz.inputEl.val()).toBe("");
       });
 
+      it("should change the status to correct", function() {
+        expect(quiz.statusEl.html()).toBe("correct!");
+      });
+
       it("should blur and refocus the input", function() {
         // TODO: how to test this?
       });
@@ -84,6 +89,10 @@ describe("Quiz", function() {
 
       it("shouldn't advance to the next word", function() {
         expect(quiz.words.length).toBe(1);
+      });
+
+      it("should change the status to incorrect", function() {
+        expect(quiz.statusEl.html()).toBe("incorrect!");
       });
     });
   });

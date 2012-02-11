@@ -1,42 +1,52 @@
 body {
+  background-color: #e0e5e9;
   color: #444;
   font-family: 'Magra', sans-serif;
-  background-color: #e0e5e9;
-  overflow: hidden;
   font-size: 24px;
+  overflow: hidden;
   text-align: center;
 }
+
 input {
+  background-color: #fcfcfc;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: solid 1px #ccc;
   color: #444;
   font-family: 'Magra', sans-serif;
-  background-color: #fcfcfc;
-  margin-bottom: 30px;
   font-size: 36px;
-  border: none;
-  border-bottom: solid 1px #ccc;
+  margin-bottom: 30px;
   text-align: center;
   width: 300px;
 }
+
 #parapper {
   margin: 50px;
 }
+
 #quiz {
   background-color: #fcfcfc;
-  box-shadow: 2px 2px 5px #888;
   border-radius: 15px;
+  box-shadow: 2px 2px 5px #888;
+  height: 220px;
   margin: 0 auto;
   padding: 20px;
   width: 500px;
 }
+
 #hint {
-  width: 100%;
   font-size: 36px;
-  margin-top: 50px;
   margin-bottom: 30px;
+  margin-top: 50px;
+  width: 100%;
 }
+
 #title {
   float: left;
 }
-#stats {
-  float: right;
+
+#status {
+  display: none;
+  margin: auto;
 }

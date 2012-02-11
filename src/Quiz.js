@@ -1,11 +1,12 @@
 function Quiz() {}
 
-Quiz.prototype.initialize = function(inputEl, solutionEl, hintEl) {
+Quiz.prototype.initialize = function(inputEl, solutionEl, hintEl, statusEl) {
   var self = this;
 
   this.inputEl = inputEl;
   this.solutionEl = solutionEl;
   this.hintEl = hintEl;
+  this.statusEl = statusEl;
 
   this.inputEl.keydown(function(e) {
     if (e.keyCode == 13) {
@@ -22,7 +23,11 @@ Quiz.prototype.start = function(words) {
 Quiz.prototype.checkMatch = function() {
   if (this.solutionEl.html() == this.inputEl.val()) {
     this.nextWord();
+    this.statusEl.html("correct!")
+  } else {
+    this.statusEl.html("incorrect!")
   }
+  this.statusEl.show().fadeOut();
 }
 
 Quiz.prototype.nextWord = function() {

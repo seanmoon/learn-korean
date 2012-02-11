@@ -14,7 +14,6 @@
   <script type="text/javascript" src="Word.js" charset="UTF-8"></script>
   <script type="text/javascript" src="Quiz.js" charset="UTF-8"></script>
 
-
 </head>
 
 <body>
@@ -23,14 +22,15 @@
       <div id="solution" style="display: none;"></div>
       <div id="hint"></div>
       <input type="text"><div>
+      <div id="status">correct!</div>
     </div>
   </div>
 
   <script type="text/javascript">
     (function() {
       var quiz = new Quiz();
-      quiz.initialize($("input"), $("#solution"), $("#hint"));
-      quiz.start(Word.firstSet);
+      quiz.initialize($("input"), $("#solution"), $("#hint"), $("#status"));
+      quiz.start(Word.secondSet);
     })();
   </script>
 </body>
