@@ -162,3 +162,10 @@ Word.secondSet = [
 {hint:"to drink", solution:"마시다"},
 {hint:"to order", solution:"시키다"}
 ];
+
+Word.shuffle = function(v){
+  //+ Jonas Raoni Soares Silva
+  //@ http://jsfromhell.com/array/shuffle [rev. #1]
+  for(var j, x, i = v.length; i; j = parseInt(Math.random() * i), x = v[--i], v[i] = v[j], v[j] = x);
+  return v;
+};

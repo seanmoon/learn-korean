@@ -30,7 +30,7 @@
     (function() {
       var quiz = new Quiz();
       quiz.initialize($("input"), $("#solution"), $("#hint"), $("#status"));
-      quiz.start(Word.secondSet);
+      quiz.start(Word.shuffle(Word.secondSet));
     })();
   </script>
 </body>
